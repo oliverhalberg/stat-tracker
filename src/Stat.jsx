@@ -1,9 +1,13 @@
 
 const Stat = () => {
 
+    const handleSubmit = (event) => {
+        //do code in here to handle changing between layouts (CSS)
+    }
+
     return (
         <div style={{border: 'black solid 2px'}}>
-            <form>
+            <form onSubmit={(event) => handleSubmit(event)}> 
                 <input type="radio" id="numeric" name="typeSelect"></input>
                 <label for="numeric">Numeric</label><br />
                 <input type="radio" id="text" name="typeSelect"></input>
