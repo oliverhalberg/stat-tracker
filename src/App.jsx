@@ -2,14 +2,18 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Stat from "./Stat.jsx"
 
 function App() {
   const [count, setCount] = useState(0)
-
   return (
-    <p>
-      placeholder text, work in progress
-    </p>
+    <div>
+      <p>
+        placeholder text, work in progress
+      </p>
+      <Stat />
+    </div>
+
     // <> Vite placeholder code
     //   <div>
     //     <a href="https://vite.dev" target="_blank">
