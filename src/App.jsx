@@ -5,13 +5,16 @@ import './App.css'
 import Stat from "./Stat.jsx"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0) // Vite placeholder
   return (
     <div>
       <p>
         placeholder text, work in progress
       </p>
       <Stat />
+      <br />
+      <Stat />
+      <button>+</button>
     </div>
 
     // <> Vite placeholder code
