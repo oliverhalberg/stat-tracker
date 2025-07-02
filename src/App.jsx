@@ -19,6 +19,19 @@ function App() {
 
   const nextStatId = useRef(0) //generates new sequential numeric ids for stat objects
 
+  // Adds a new object to stats representing a 'blank' Stat component
+  const addNewStat = () => {
+    setStats(prevStats => [
+      ...prevStats,
+      {
+        name: "Name",
+        value: "Value",
+        isNumeric: true,
+        id: nextStatId.current++
+      }
+    ])
+  }
+
   return (
     <div>
       <p>
@@ -40,7 +53,7 @@ function App() {
       <Stat />
       <br />
       <Stat />
-      <button>+</button> {/* Hook this up to a function that adds a new object with an incremented id and placeholder values to stats state */}
+      <button onClick={() => addNewStat()}>+</button>
     </div>
 
     // <> Vite placeholder code
