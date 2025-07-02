@@ -1,5 +1,5 @@
 
-const Stat = ( { title, value, isNumeric, id } ) => {
+const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
 
     const handleSubmit = (event) => {
         //do code in here to handle changing between layouts (CSS)
@@ -8,6 +8,7 @@ const Stat = ( { title, value, isNumeric, id } ) => {
     // whenever values change, update the stats state in App.jsx using the id value
     return (
         <div style={{border: 'black solid 2px'}}>
+            <button onClick={() => removeStat(id)}>X</button>
             <form onSubmit={(event) => handleSubmit(event)}> 
                 <input type="radio" id="numeric" name="typeSelect"></input>
                 <label for="numeric">Numeric</label><br />

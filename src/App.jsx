@@ -6,7 +6,7 @@ import Stat from "./Stat.jsx"
 
 function App() {
   const [count, setCount] = useState(0) // Vite placeholder
-  const [stats, setStats] = useState([]) // List of objects containing data for Stat components
+  const [stats, setStats] = useState([]); // List of objects containing data for Stat components
   /*
     Format for objects for stats state: 
     {
@@ -17,7 +17,7 @@ function App() {
     }
   */
 
-  const nextStatId = useRef(0) //generates new sequential numeric ids for stat objects
+  const nextStatId = useRef(0); //generates new sequential numeric ids for stat objects
 
   // Adds a new object to stats representing a 'blank' Stat component
   const addNewStat = () => {
@@ -29,7 +29,11 @@ function App() {
         isNumeric: true,
         id: nextStatId.current++
       }
-    ])
+    ]);
+  }
+
+  const handleRemoveStat = (id) => {
+    setStats(prevStats => prevStats.filter(p => p.id !== id));
   }
 
   return (
@@ -46,6 +50,7 @@ function App() {
             value={s.value}
             isNumeric={s.isNumeric}
             id={s.id}
+            removeStat={handleRemoveStat}
           />
         ))
         : null
