@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -6,15 +6,41 @@ import Stat from "./Stat.jsx"
 
 function App() {
   const [count, setCount] = useState(0) // Vite placeholder
+  const [stats, setStats] = useState([]) // List of objects containing data for Stat components
+  /*
+    Format for objects for stats state: 
+    {
+      name: "Example",
+      value: "42",
+      isNumeric: True,
+      id: 0
+    }
+  */
+
+  const nextStatId = useRef(0) //generates new sequential numeric ids for stat objects
+
   return (
     <div>
       <p>
         placeholder text, work in progress
       </p>
+      {
+        // if there is a list of stat components, render them
+        stats ?
+        (stats.map(s =>
+          <Stat 
+            name={s.name}
+            value={s.value}
+            isNumeric={s.isNumeric}
+            id={s.id}
+          />
+        ))
+        : null
+      }
       <Stat />
       <br />
       <Stat />
-      <button>+</button>
+      <button>+</button> {/* Hook this up to a function that adds a new object with an incremented id and placeholder values to stats state */}
     </div>
 
     // <> Vite placeholder code

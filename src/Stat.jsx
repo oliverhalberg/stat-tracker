@@ -1,10 +1,11 @@
 
-const Stat = () => {
+const Stat = ( { title, value, isNumeric, id } ) => {
 
     const handleSubmit = (event) => {
         //do code in here to handle changing between layouts (CSS)
     }
 
+    // whenever values change, update the stats state in App.jsx using the id value
     return (
         <div style={{border: 'black solid 2px'}}>
             <form onSubmit={(event) => handleSubmit(event)}> 
