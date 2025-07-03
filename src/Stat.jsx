@@ -25,9 +25,13 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
                 <input type="text" placeholder={"Title will go here"}></input>
             </div>
             <div>
+                { /* Remove default buttons with CSS, hook buttons up to functions in this component */}
                 <button>-</button>
-                <input type="text" placeholder={"Value will go here"}></input>
+                <input type="number" placeholder={"Number will go here"}></input>
                 <button>+</button>
+            </div>
+            <div>
+                <input type="text" placeholder={"Text will go here"}></input>
             </div>
         </div>
     )
