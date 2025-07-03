@@ -6,7 +6,8 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
     }
 
     // whenever values change, update the stats state in App.jsx using the id value
-    // also TODO: make this editable
+    // is that actually necessary? it seems to be saving the values on its own
+    // if I want this to persist on page reload (cookies) then I would need to do this
     return (
         <div style={{border: 'black solid 2px'}}>
             <button onClick={() => removeStat(id)}>X</button>
@@ -16,9 +17,9 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
                 <input type="radio" id="text" name="typeSelect"></input>
                 <label for="text">Text</label> <br />
             </form>
-            <input type="text" value={"Title will go here"}></input>
+            <input type="text" placeholder={"Title will go here"}></input>
             <button>-</button>
-            <input type="text" value={"Value will go here"}></input>
+            <input type="text" placeholder={"Value will go here"}></input>
             <button>+</button>
         </div>
     )
