@@ -1,8 +1,25 @@
 
+import { useRef } from 'react'
 const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
 
     const handleSubmit = (event) => {
         //do code in here to handle changing between layouts (CSS)
+    }
+
+    //ref for tracking numeric values
+    const numberVal = useRef()
+
+    //function to increment and decrement numeric values by 1
+    const incAndDec = (increment) => {
+        let num = document.getElementById(('number-' + id)).value;
+        if(increment){
+            document.getElementById(('number-' + id)).value = (Number(num) + 1);
+            console.log("incremented")
+        }
+        else{
+            document.getElementById(('number-' + id)).value = (Number(num) - 1);
+            console.log("decremented")
+        }
     }
 
     // whenever values change, update the stats state in App.jsx using the id value
@@ -25,10 +42,10 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
                 <input type="text" placeholder={"Title will go here"}></input>
             </div>
             <div>
-                { /* Remove default buttons with CSS, hook buttons up to functions in this component */}
-                <button>-</button>
-                <input type="number" placeholder={"Number will go here"}></input>
-                <button>+</button>
+                { /* Remove default buttons with CSS */}
+                <button onClick={() => incAndDec(false)}>-</button>
+                <input type="number" placeholder={"Number will go here"} ref={numberVal} id={'number-' + id}></input>
+                <button onClick={() => incAndDec(true)}>+</button>
             </div>
             <div>
                 <input type="text" placeholder={"Text will go here"}></input>
