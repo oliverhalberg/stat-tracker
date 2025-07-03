@@ -10,17 +10,25 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
     // if I want this to persist on page reload (cookies) then I would need to do this
     return (
         <div style={{border: 'black solid 2px'}}>
-            <button onClick={() => removeStat(id)}>X</button>
-            <form onSubmit={(event) => handleSubmit(event)}> 
-                <input type="radio" id="numeric" name="typeSelect"></input>
-                <label for="numeric">Numeric</label><br />
-                <input type="radio" id="text" name="typeSelect"></input>
-                <label for="text">Text</label> <br />
-            </form>
-            <input type="text" placeholder={"Title will go here"}></input>
-            <button>-</button>
-            <input type="text" placeholder={"Value will go here"}></input>
-            <button>+</button>
+            <div>
+                <button onClick={() => removeStat(id)}>X</button>
+            </div>
+            <div>
+                <form onSubmit={(event) => handleSubmit(event)}> 
+                    <input type="radio" id="numeric" name="typeSelect"></input>
+                    <label for="numeric">Numeric</label><br />
+                    <input type="radio" id="text" name="typeSelect"></input>
+                    <label for="text">Text</label> <br />
+                </form>
+            </div>
+            <div>
+                <input type="text" placeholder={"Title will go here"}></input>
+            </div>
+            <div>
+                <button>-</button>
+                <input type="text" placeholder={"Value will go here"}></input>
+                <button>+</button>
+            </div>
         </div>
     )
 }
