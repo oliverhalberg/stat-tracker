@@ -6,6 +6,7 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
     }
 
     // whenever values change, update the stats state in App.jsx using the id value
+    // also TODO: make this editable
     return (
         <div style={{border: 'black solid 2px'}}>
             <button onClick={() => removeStat(id)}>X</button>

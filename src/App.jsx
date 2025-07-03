@@ -45,19 +45,19 @@ function App() {
         // if there is a list of stat components, render them
         stats ?
         (stats.map(s =>
-          <Stat 
-            name={s.name}
-            value={s.value}
-            isNumeric={s.isNumeric}
-            id={s.id}
-            removeStat={handleRemoveStat}
-          />
+          <>
+            <Stat 
+              name={s.name}
+              value={s.value}
+              isNumeric={s.isNumeric}
+              id={s.id}
+              removeStat={handleRemoveStat}
+            />
+            <br />
+          </>
         ))
         : null
       }
-      <Stat />
-      <br />
-      <Stat />
       <button onClick={() => addNewStat()}>+</button>
     </div>
 
