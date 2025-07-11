@@ -4,6 +4,19 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
 
     const handleSubmit = (event) => {
         //do code in here to handle changing between layouts (CSS)
+        let buttons = document.getElementsByName("typeSelect");
+
+        for (i = 0; i < buttons.length; i++){
+            if (buttons[i].checked){
+                if (buttons[i].id == ("numeric-" + id)){
+                    document.getElementById("stat-" + id).classList.toggle("numeric");
+
+                }
+                else {
+                    document.getElementById("stat-" + id).classList.toggle("numeric");
+                }
+            }
+        }
     }
 
     //ref for tracking numeric values
@@ -26,15 +39,15 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
     // is that actually necessary? it seems to be saving the values on its own
     // if I want this to persist on page reload (cookies) then I would need to do this
     return (
-        <div style={{border: 'black solid 2px'}} id={'stat-'+ id} className='statWidget'>
+        <div style={{border: 'black solid 2px'}} id={'stat-' + id} className='statWidget numeric'>
             <div>
                 <button onClick={() => removeStat(id)}>X</button>
             </div>
             <div className='typeSelectForm'>
                 <form onSubmit={(event) => handleSubmit(event)}> 
-                    <input type="radio" id="numeric" name="typeSelect"></input>
+                    <input type="radio" id={"numeric-" + id} name="typeSelect" checked={isNumeric}></input>
                     <label for="numeric">Numeric</label><br />
-                    <input type="radio" id="text" name="typeSelect"></input>
+                    <input type="radio" id={"text-" + id} name="typeSelect" checked={!isNumeric}></input>
                     <label for="text">Text</label> <br />
                 </form>
             </div>
