@@ -10,9 +10,15 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
             if (buttons[i].checked){
                 if (buttons[i].id == ("numeric-" + id)){
                     document.getElementById("stat-" + id).classList.toggle("numeric");
+                    document.getElementById("textBlock-" + id).style.display = 'none';
+                    document.getElementById("numbersBlock-" + id).style.display = 'block';
+
                 }
                 else {
                     document.getElementById("stat-" + id).classList.toggle("numeric");
+                    document.getElementById("numbersBlock-" + id).style.display = "none";
+                    document.getElementById("textBlock-" + id).style.display = "block";
+
                 }
             }
         }
@@ -53,13 +59,13 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
             <div className='widgetTitle'>
                 <input type="text" placeholder={"Title will go here"}></input>
             </div>
-            <div className='widgetNumbers'>
+            <div className='widgetNumbers' id ={"numbersBlock-" + id} style={{display: (isNumeric ? "block" : "none")}}>
                 { /* Remove default buttons with CSS */}
                 <button onClick={() => incAndDec(false)}>-</button>
                 <input type="number" placeholder={"Number will go here"} ref={numberVal} id={'number-' + id}></input>
                 <button onClick={() => incAndDec(true)}>+</button>
             </div>
-            <div className='widgetText'>
+            <div className='widgetText' id={"textBlock-" + id} style={{display: (isNumeric ? "none" : "block")}}>
                 <input type="text" placeholder={"Text will go here"}></input>
             </div>
         </div>
