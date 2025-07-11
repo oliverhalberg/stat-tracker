@@ -2,6 +2,7 @@
 import { useRef } from 'react'
 const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
 
+    //still having some weird behavior with things not swapping back when there are multiple Stat components on screen
     const handleSubmit = (event) => {
         //do code in here to handle changing between layouts (CSS)
         let buttons = document.getElementsByName("typeSelect");
