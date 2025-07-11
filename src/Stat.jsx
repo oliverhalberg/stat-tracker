@@ -38,7 +38,7 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
     // is that actually necessary? it seems to be saving the values on its own
     // if I want this to persist on page reload (cookies) then I would need to do this
     return (
-        <div style={{border: 'black solid 2px'}} id={'stat-' + id} className='statWidget numeric'>
+        <div id={'stat-' + id} className={"statWidget" + (isNumeric ? " numeric" : "")}>
             <div>
                 <button onClick={() => removeStat(id)}>X</button>
             </div>
