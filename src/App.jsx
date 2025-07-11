@@ -51,6 +51,7 @@ function App() {
               value={s.value}
               isNumeric={s.isNumeric}
               id={s.id}
+              key={s.id.toString()}
               removeStat={handleRemoveStat}
             />
             <br />

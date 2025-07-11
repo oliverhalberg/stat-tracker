@@ -6,11 +6,10 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
         //do code in here to handle changing between layouts (CSS)
         let buttons = document.getElementsByName("typeSelect");
 
-        for (i = 0; i < buttons.length; i++){
+        for (let i = 0; i < buttons.length; i++){
             if (buttons[i].checked){
                 if (buttons[i].id == ("numeric-" + id)){
                     document.getElementById("stat-" + id).classList.toggle("numeric");
-
                 }
                 else {
                     document.getElementById("stat-" + id).classList.toggle("numeric");
@@ -44,11 +43,11 @@ const Stat = ( { title, value, isNumeric, id, removeStat } ) => {
                 <button onClick={() => removeStat(id)}>X</button>
             </div>
             <div className='typeSelectForm'>
-                <form onSubmit={(event) => handleSubmit(event)}> 
-                    <input type="radio" id={"numeric-" + id} name="typeSelect" checked={isNumeric}></input>
-                    <label for="numeric">Numeric</label><br />
-                    <input type="radio" id={"text-" + id} name="typeSelect" checked={!isNumeric}></input>
-                    <label for="text">Text</label> <br />
+                <form onChange={(event) => handleSubmit(event)}> 
+                    <input type="radio" id={"numeric-" + id} name="typeSelect" defaultChecked={isNumeric}></input>
+                    <label htmlFor="numeric">Numeric</label><br />
+                    <input type="radio" id={"text-" + id} name="typeSelect" defaultChecked={!isNumeric}></input>
+                    <label htmlFor="text">Text</label> <br />
                 </form>
             </div>
             <div className='widgetTitle'>
